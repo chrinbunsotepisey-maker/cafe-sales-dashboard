@@ -1,35 +1,41 @@
-# cafe-sales-dashboard
-A café sales and inventory dashboard built with Python, SQL, and Streamlit.
+# Café Sales Dashboard
 
-I'm building a dashboard for a coffee shop to track sales, gross profit, and stock levels.
+A Streamlit app for recording sales and reviewing monthly performance at a fictional café. I built it with Python, Streamlit, and SQLite to practice connecting a sales entry form to a database and using SQL to turn those records into reports.
 
-## Questions I want to answer
+## Features
 
-- How much revenue does the café earn each month?
-- Which products sell the most, and which earn the most gross profit?
-- Which products are running low on stock?
+### Record a Sale
 
-## Tools I plan to use
+- Choose a sale date and enter the quantity for each product.
+- Review the items, prices, and total before saving.
+- Save the sale to SQLite and see the receipt number.
 
-- SQLite and SQL for the database and analysis
-- Python and Streamlit for the interactive dashboard
+### Sales Report
 
-## Project status
+- Select a month to see revenue, receipt count, and items sold.
+- Compare product revenue in a bar chart and review quantities in the product table.
+- View individual receipts for the selected month.
+- Download the monthly product sales report as a CSV file for Excel.
 
-The database schema, sample data, and receipt totals query are complete and tested in a fresh SQLite database.
+## Run the app locally
 
-## How to run the SQL example
+Download or clone this repository. Open the project folder in VS Code and run these commands in the terminal:
 
-1. Open DB Browser for SQLite and create a new, empty database.
-2. In Execute SQL, run `schema.sql` to create the tables.
-3. Run `sample_data.sql` to load the fictional café receipts.
-4. Run `receipt_totals.sql` to calculate the total for each receipt.
+```powershell
+py -m pip install -r requirements.txt
+py -m streamlit run app.py
+```
 
-Click **Write Changes** after steps 2 and 3 if the button is enabled.
+Open the **Local URL** shown in the terminal. The app can start in demo mode using the fictional records in `sample_data.sql`. Sales entered in demo mode are saved for the current session.
 
-### Expected results
+## Try it
 
-| Receipt | Total (cents) | Total (USD) |
-| --- | ---: | ---: |
-| 101 | 675 | $6.75 |
-| 102 | 600 | $6.00 |
+1. Open **Record a Sale** and enter one iced coffee and two croissants.
+2. Confirm the total is **$6.00**, then save the sale.
+3. Open **Sales Report**, select the month of the sale, and find the new receipt.
+4. Download the product sales CSV and compare it with the table on screen.
+
+## Future improvements
+
+- Track stock levels and flag low-stock products.
+- Record product costs to calculate gross profit.
